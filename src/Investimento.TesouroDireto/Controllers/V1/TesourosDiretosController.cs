@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 namespace Investimento.TesouroDireto.Controllers.V1
 {
     [ApiVersion("1.0")]
-    [Route("api/v{version:apiVersion}/tesouros_direto")]
-    public class TesourosDiretoController : MainController
+    [Route("api/v{version:apiVersion}/tesouros_diretos")]
+    public class TesourosDiretosController : MainController
     {
         private readonly ITesouroDiretoService _tesouroDiretoService;
 
-        public TesourosDiretoController(ILogger logger, ITesouroDiretoService tesouroDiretoService) : base(logger)
+        public TesourosDiretosController(ILogger logger, ITesouroDiretoService tesouroDiretoService) : base(logger)
         {
             _tesouroDiretoService = tesouroDiretoService;
         }
 
-        [HttpGet("{accountId:long}/tesouros_direto")]
-        public async Task<IActionResult> ObtemInvestimentoConsolidados(long accountId)
+        [HttpGet("{accountId:long}")]
+        public async Task<IActionResult> GetInvestments(long accountId)
         {
             var clienteInvestimentosViewModel = await _tesouroDiretoService.GetAllByAccountIdAsync(accountId);
 
