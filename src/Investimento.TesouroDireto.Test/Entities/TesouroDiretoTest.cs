@@ -24,21 +24,21 @@ namespace Investimento.TesouroDireto.Test.Entities
         [TestMethod]
         public void ShouldCalculateResgateLessThan3MonthsExpirationDateofTesouDiretoWhenDataIsValid()
         {
-            var tesouroDireto = new Domain.Entities.TesouroDireto(799.4720, 829.68, DateTime.Parse("2021-05-01T00:00:00"), DateTime.Parse("2015-03-01T00:00:00"), 0, "SELIC", "TD", "Tesouro Selic 2025");
+            var tesouroDireto = new Domain.Entities.TesouroDireto(799.4720, 829.68, DateTime.Now.AddMonths(3), DateTime.Now.AddMonths(-3), 0, "SELIC", "TD", "Tesouro Selic 2025");
             Assert.IsTrue(tesouroDireto.ValorResgate == 779.8992);
         }
 
         [TestMethod]
         public void ShouldCalculateResgateMoreThanHalfExpirationDateofTesouDiretoWhenDataIsValid()
         {
-            var tesouroDireto = new Domain.Entities.TesouroDireto(799.4720, 829.68, DateTime.Parse("2026-03-01T00:00:00"), DateTime.Parse("2015-03-01T00:00:00"), 0, "SELIC", "TD", "Tesouro Selic 2025");
+            var tesouroDireto = new Domain.Entities.TesouroDireto(799.4720, 829.68, DateTime.Now.AddMonths(5), DateTime.Now.AddMonths(-7), 0, "SELIC", "TD", "Tesouro Selic 2025");
             Assert.IsTrue(tesouroDireto.ValorResgate == 705.228);
         }
 
         [TestMethod]
         public void ShouldCalculateResgateLessThanHalfExpirationDateofTesouDiretoWhenDataIsValid()
         {
-            var tesouroDireto = new Domain.Entities.TesouroDireto(799.4720, 829.68, DateTime.Parse("2026-03-01T00:00:00"), DateTime.Parse("2024-03-01T00:00:00"), 0, "SELIC", "TD", "Tesouro Selic 2025");
+            var tesouroDireto = new Domain.Entities.TesouroDireto(799.4720, 829.68, DateTime.Now.AddMonths(12), DateTime.Now.AddMonths(-7), 0, "SELIC", "TD", "Tesouro Selic 2025");
             Assert.IsTrue(tesouroDireto.ValorResgate == 580.776);
         }
     }
