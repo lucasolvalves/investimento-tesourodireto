@@ -19,12 +19,12 @@ namespace Investimento.TesouroDireto.Controllers.V1
         [HttpGet("{accountId:long}")]
         public async Task<IActionResult> GetInvestments(long accountId)
         {
-            var clienteInvestimentosViewModel = await _tesouroDiretoService.GetAllByAccountIdAsync(accountId);
+            var Investments = await _tesouroDiretoService.GetAllByAccountIdAsync(accountId);
 
-            if (clienteInvestimentosViewModel?.Count == 0)
+            if (Investments?.Count == 0)
                 return NotFound();
 
-            return Ok(new { data = clienteInvestimentosViewModel });
+            return Ok(new { data = Investments });
         }
     }
 }
