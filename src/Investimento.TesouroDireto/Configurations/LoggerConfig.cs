@@ -25,8 +25,8 @@ namespace Investimento.TesouroDireto.Configurations
             app.UseKissLogMiddleware(options =>
             {
                 options.Listeners.Add(new RequestLogsApiListener(new Application(
-                    configuration.GetSection("AppSettings:KissLog:OrganizationId").Value,
-                    configuration.GetSection("AppSettings:KissLog:ApplicationId").Value)
+                    configuration.GetSection("AppSettings:KissLog:OrganizationId")?.Value,
+                    configuration.GetSection("AppSettings:KissLog:ApplicationId")?.Value)
                 )
                 {
                     ApiUrl = "https://api.kisslog.net"

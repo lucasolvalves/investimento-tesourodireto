@@ -50,7 +50,7 @@ namespace Investimento.TesouroDireto.Infrastructure.Services
             try
             {
                 using (HttpClient httpclient = _httpFactory.CreateClient("mockinvestimento"))
-                using (HttpResponseMessage httpResponse = await httpclient.GetAsync(_configuration.GetSection("AppSettings:Mockyio:RequestUri").Value))
+                using (HttpResponseMessage httpResponse = await httpclient.GetAsync(_configuration.GetSection("AppSettings:Mockyio:RequestUri")?.Value))
                 {
                     var body = await httpResponse.Content?.ReadAsStringAsync();
 
