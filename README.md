@@ -15,6 +15,6 @@ O objetivo deste documento é facilitar a compreenção do escopo da solução e
 Você deverá ver a indicação da versão do dotnet instalado.
 Observe que para executar o projeto é necessario possuir a 5.0.
 
-### SOBRE O AUTOR/ORGANIZADOR
+## SOBRE O AUTOR/ORGANIZADOR
 Lucas de Oliveira Alves<br>
 lucas.olvalveso@gmail.com
