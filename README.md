@@ -17,4 +17,4 @@ Observe que para executar o projeto é necessario possuir a 5.0.
 
 ## SOBRE O AUTOR/ORGANIZADOR
 Lucas de Oliveira Alves<br>
-lucas.olvalveso@gmail.com
+lucas.olvalves@gmail.com
